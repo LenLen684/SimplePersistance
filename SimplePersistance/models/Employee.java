@@ -6,16 +6,11 @@ public class Employee implements Serializable {
     private int id, hireYear;
     private String firstName,lastName;
 
-    public Employee(int id, int hireYear, String firstName, String lastName) {
+    public Employee(int id, String firstName, String lastName, int hireYear) {
         this.id = id;
         this.hireYear = hireYear;
         this.firstName = firstName;
         this.lastName = lastName;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee Id:"+id +", "+firstName + " " + lastName + ", Hire Year:" + hireYear;
     }
 
     public int getId() {
@@ -49,4 +44,10 @@ public class Employee implements Serializable {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    @Override
+    public String toString() {
+        return "ID: "+id +", "+firstName + " " + lastName + ", " + hireYear;
+    }
+
 }

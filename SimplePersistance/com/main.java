@@ -1,12 +1,18 @@
 package com;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import models.Employee;
 
 public class main {
 	
 	public static void main(String[] args) {
-		printPeopleDetails(
-				"C:\\Users\\ninja\\Documents\\Assignments\\Fall 2020\\Database 2, Electric Boogaloo\\Simple Pesistance\\People Records\\simple");
+		printEmployees(
+				"C:\\Users\\shact\\Documents\\GitHub\\SimplePersistance\\people\\simple");
 	}
 	
 	public static void printPeopleDetails(String path) {
@@ -32,7 +38,31 @@ public class main {
 	}
 	
 	public static void printEmployees(String path) {
-		
+		File dir = new File(path);
+		File[] directory = dir.listFiles();
+		if (directory == null) {
+			System.out.println("Empty Directory");
+		} else {
+			for (File emp : directory) {
+				try {
+					BufferedReader Buffy = new BufferedReader(new FileReader(emp));
+					String line;
+					Employee E = null;
+					while ((line = Buffy.readLine()) != null) {
+						String[] info = line.split(", ");
+						int id = Integer.parseInt(info[0]);
+						int year = Integer.parseInt(info[3]);
+						
+						E = new Employee(id, info[1], info[2], year);
+					}
+					System.out.println(E.toString());
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 
 }

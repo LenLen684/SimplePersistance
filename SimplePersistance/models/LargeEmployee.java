@@ -4,8 +4,8 @@ public class LargeEmployee extends Employee {
 
     private byte[] someData;
 
-    public LargeEmployee(int id, int hireYear, String firstName, String lastName, byte[] someData) {
-        super(id, hireYear, firstName, lastName);
+    public LargeEmployee(int id, String firstName, String lastName, int hireYear, byte[] someData) {
+        super(id,  firstName, lastName, hireYear);
         this.someData = someData;
     }
 
