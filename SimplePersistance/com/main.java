@@ -6,13 +6,14 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import lib.ConsoleIO;
 import models.Employee;
 
 public class main {
 	
 	public static void main(String[] args) {
-		printEmployees(
-				"C:\\Users\\shact\\Documents\\GitHub\\SimplePersistance\\people\\simple");
+		String path = ConsoleIO.promptForInput("Please enter the folder path to check", false);
+		printEmployees(path);
 	}
 	
 	public static void printPeopleDetails(String path) {
