@@ -47,7 +47,7 @@ public class Employee implements Serializable {
 
     @Override
     public String toString() {
-        return "ID: "+id +", "+firstName + " " + lastName + ", " + hireYear;
+        return id +", "+firstName + ", " + lastName + ", " + hireYear;
     }
 
 }
