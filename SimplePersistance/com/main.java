@@ -31,7 +31,10 @@ public class main {
 //		
 //		PrintSerializedDetails(path);
 
-		PrintAllEmployees();
+//		PrintAllEmployees();
+		long before = System.currentTimeMillis();
+		PrintSerializedDetails(path);
+		System.out.println(System.currentTimeMillis() - before);
 		
 //		Employee person = GetSerializedEmployee(1);
 //		System.out.println(person.toString());
@@ -40,7 +43,7 @@ public class main {
 	public static void printPeopleDetails(String path) {
 		File dir = new File(path);
 		File[] directory = dir.listFiles();
-		if (directory == null) {
+		if (directory != null) {
 			for (File emp : directory) {
 				try {
 					BufferedReader Buffy = new BufferedReader(new FileReader(emp));
